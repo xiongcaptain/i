@@ -7,6 +7,8 @@ psk="pskishere"
 username="user"
 password="password"
 
+#Function
+
 download_lib(){
 
 	yum -y update
