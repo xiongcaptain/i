@@ -78,7 +78,7 @@ net_speeder(){
 sstart(){
 
 	sudo ssserver -p ${port} -k ${password} -m aes-256-cfb --user nobody -d start
-	echo 'sudo ssserver -p '${port}' -k '${password}' -m aes-256-cfb --user nobody -d start' >> /etc/rc.local
+	echo 'sudo ssserver -p '${port}' -k '${password}' -m rc4-md5 --user nobody -d start' >> /etc/rc.local
 
 }
 
