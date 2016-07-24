@@ -24,6 +24,8 @@ if os.path.exists(log):
         data = page.read()
         j = json.loads(data)
         if j[u'code'] == 0:
-            print i,' Country :',j[u'data'][u'country'].encode('utf-8'),j[u'data'][u'city'].encode('utf-8')
+            print i,'  Area :',j[u'data'][u'country'].encode('utf-8'),j[u'data'][u'city'].encode('utf-8')
+        else:
+            print i,' Unable to check !'
 else:
     print 'no exists !'
