@@ -2,7 +2,7 @@
 
 import os,re,urllib,json
 
-log = "shadowsocks.log"
+log = "/var/log/shadowsocks.log"
 ip = []
 
 if os.path.exists(log):
