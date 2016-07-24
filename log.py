@@ -1,8 +1,8 @@
 #-*-coding : utf-8 -*-
 
-import os,re
+import os,re,urllib,json
 
-log = "/var/log/shadowsocks.log"
+log = "shadowsocks.log"
 ip = []
 
 if os.path.exists(log):
@@ -19,6 +19,11 @@ if os.path.exists(log):
     lines.close()
     print 'A total of',len(ip),'IP'
     for i in ip:
-        print i
+        url = 'http://ip.taobao.com/service/getIpInfo.php?ip=' + i
+        page = urllib.urlopen(url)
+        data = page.read()
+        j = json.loads(data)
+        if j[u'code'] == 0:
+            print i,' Country :',j[u'data'][u'country'].encode('utf-8'),j[u'data'][u'city'].encode('utf-8')
 else:
     print 'no exists !'
