@@ -19,9 +19,9 @@ download_lib(){
 	wget --no-check-certificate https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz
 	tar -zxf libevent-2.0.22-stable.tar.gz
 	rm -rf libevent-2.0.22-stable.tar.gz
-	wget --no-check-certificate https://download.libreswan.org/libreswan-3.17.tar.gz
-	tar -zxf libreswan-3.17.tar.gz
-	rm -rf libreswan-3.17.tar.gz
+	wget --no-check-certificate https://download.libreswan.org/libreswan-3.9.tar.gz
+	tar -zxf libreswan-3.9.tar.gz
+	rm -rf libreswan-3.9.tar.gz
 
 }
 
@@ -35,7 +35,7 @@ install(){
 	ln -sf /usr/local/lib/libevent_pthreads-2.0.so.5 /usr/lib64/libevent_pthreads-2.0.so.5
 
 	#libreswan
-	cd ${dir}/libreswan-3.17
+	cd ${dir}/libreswan-3.9
 	echo "WERROR_CFLAGS =" > Makefile.inc.local
 	make programs && make install
 
