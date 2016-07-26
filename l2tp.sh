@@ -11,7 +11,6 @@ password="password"
 
 download_lib(){
 
-	yum -y update
 	yum -y install epel-release
 	yum -y install gcc gcc-c++ ppp iptables make gmp-devel xmlto bison flex libpcap-devel lsof
 	yum -y install xl2tpd curl-devel nss-devel nspr-devel pkgconfig pam-devel unbound-devel libcap-ng-devel
