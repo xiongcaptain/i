@@ -97,4 +97,4 @@ shadowsocks_py(){
 
 shadowsocks_py
 
-echo "Finished, please reboot"
+echo "Finished"
