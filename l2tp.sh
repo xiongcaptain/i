@@ -145,6 +145,7 @@ eiptables(){
 	iptables -I FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
 	iptables -I FORWARD -s ${iprange}.0/24  -j ACCEPT
 	iptables -t nat -A POSTROUTING -s ${iprange}.0/24 -j SNAT --to-source ${ip}
+	iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 	/etc/init.d/iptables save
 
 	echo > /var/tmp/libreswan-nss-pwd
