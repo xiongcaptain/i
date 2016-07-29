@@ -4,9 +4,11 @@ dir=`pwd`
 port="53488"
 password="password"
 
-kill(){
+stop(){
 	
-	kill `ps -ef | grep server.py | awk 'NR==1{print $2}'`
+	cd ${dir}/shadowsocks/shadowsocks
+	python server.py -d stop
+	
 }
 
 update(){
@@ -18,7 +20,7 @@ update(){
 }
 
 u(){
-	kill
+	stop
 	update
 }
 
