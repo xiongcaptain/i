@@ -18,4 +18,11 @@ update(){
 
 }
 
+u(){
+	kill
+	update
+}
+
+u
+
 echo "Finished"
