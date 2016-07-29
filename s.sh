@@ -13,9 +13,10 @@ install_ss(){
 	yum -y install python-setuptools && easy_install pip
 	yum -y install git
 	git clone -b manyuser https://github.com/breakwa11/shadowsocks.git
-	python ${dir}/shadowsocks/shadowsocks/server.py -p ${port} -k ${password} -m rc4-md5 -o http_simple -d start
-	echo 'python ${dir}/shadowsocks/shadowsocks/server.py -p '${port}' -k '${password}' -m rc4-md5 -o http_simple -d start' >> /etc/rc.local
-
+	cd ${dir}/shadowsocks/shadowsocks
+	python server.py -p ${port} -k ${password} -m rc4-md5 -o http_simple -d start
+	echo 'python '${dir}'/shadowsocks/shadowsocks/server.py -p '${port}' -k '${password}' -m rc4-md5 -o http_simple -d start' >> /etc/rc.local
+	
 }
 
 elimits(){
