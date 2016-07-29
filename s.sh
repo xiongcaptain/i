@@ -1,5 +1,7 @@
 #cent 6 64 bit
 
+dir=`pwd`
+
 port="53488"
 password="password"
 
@@ -9,7 +11,10 @@ install_ss(){
 
 	yum -y update
 	yum -y install python-setuptools && easy_install pip
-	pip install shadowsocks
+	yum -y install git
+	git clone -b manyuser https://github.com/breakwa11/shadowsocks.git
+	python ${dir}/shadowsocks/shadowsocks/server.py -p ${port} -k ${password} -m rc4-md5 -o http_simple -d start
+	echo 'python ${dir}/shadowsocks/shadowsocks/server.py -p '${port}' -k '${password}' -m rc4-md5 -o http_simple -d start' >> /etc/rc.local
 
 }
 
@@ -75,12 +80,6 @@ net_speeder(){
 
 }
 
-sstart(){
-
-	sudo ssserver -p ${port} -k ${password} -m aes-256-cfb --user nobody -d start
-	echo 'sudo ssserver -p '${port}' -k '${password}' -m rc4-md5 --user root -d start' >> /etc/rc.local
-
-}
 
 shadowsocks_py(){
 
@@ -90,7 +89,6 @@ shadowsocks_py(){
 	esysctl
 	eiptables
 	net_speeder
-	sstart
 
 }
 
