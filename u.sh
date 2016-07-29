@@ -6,8 +6,7 @@ password="password"
 
 kill(){
 	
-	s = `ps -ef | grep server.py | awk 'NR==1{print $2}'`
-	kill ${s}
+	kill `ps -ef | grep server.py | awk 'NR==1{print $2}'`
 }
 
 update(){
