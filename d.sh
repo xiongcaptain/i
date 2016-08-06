@@ -16,7 +16,7 @@ update(){
 	cd ${dir}/shadowsocks
 	git pull
 	cd ${dir}/shadowsocks/shadowsocks
-	python server.py -p ${port} -k ${password} -m rc4-md5 -o http_simple -d start
+	python server.py -p ${port} -k ${password} -m rc4-md5 -P auth_sha1 -o http_simple -d start
 
 }
 
