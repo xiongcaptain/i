@@ -7,6 +7,7 @@ password="password"
 stop(){
 	
 	cd ${dir}/shadowsocks/shadowsocks
+	rm -rf /var/log/shadowsocks.log
 	python server.py -d stop
 	
 }
